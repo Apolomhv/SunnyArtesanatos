@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunny — encontre seu próximo achado</title>
+  <link rel="stylesheet" href="assets/css/mockups.css">
+  <link rel="stylesheet" href="assets/css/cart.css">
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script src="assets/js/mockups.js" defer></script>
+</head>
+<body class="variant-ux" data-store>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><img src="assets/Imagens/SunnyLogo.png" alt="">SunnyArtesanatos</a>
+      <form class="market-search" role="search" onsubmit="return false">
+        <label class="sr-only" for="search">Buscar produtos e artesãos</label>
+        <input id="search" type="search" placeholder="Buscar produtos e artesãos">
+        <button type="submit" aria-label="Buscar">⌕</button>
+      </form>
+      <div class="header-tools">
+        <a class="account-link" href="login.html">Entre ou cadastre-se</a>
+        <a class="account-link" href="profile.html" id="profileLink" hidden>Meu perfil</a>
+        <button class="header-cart" id="open-cart" type="button" aria-label="Abrir sacola, 0 itens">Sacola <span id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero market-hero">
+      <div><p class="eyebrow">Feito à mão no Brasil</p><h1>Encontre peças com história.</h1><p>Descubra produtos artesanais cadastrados pelos próprios artesãos.</p><div class="hero-links"><a class="button" href="#catalogo">Explorar produtos</a><a class="button button-secondary" id="sellerRegistrationLink" href="registro.html">Sou artesão</a></div></div>
+      <div class="hero-art" role="img" aria-label="Ilustração de peças artesanais">🏺</div>
+    </section>
+    <section class="benefits" aria-label="Sobre o catálogo"><div class="benefit"><strong>Feito por pessoas</strong><span>Conheça o nome de quem cadastrou cada peça.</span></div><div class="benefit"><strong>Informações cadastradas</strong><span>Consulte preço, descrição e estoque disponíveis.</span></div><div class="benefit"><strong>Catálogo conectado</strong><span>Os produtos são carregados do banco de dados.</span></div></section>
+    <section id="catalogo">
+      <div class="store-heading"><div><h2>Ofertas feitas à mão</h2><p>Peças prontas, em estoque limitado.</p></div><a class="button button-secondary" id="shoppingLoginLink" href="login.html">Entrar para comprar</a></div>
+      <div class="catalog-toolbar"><span id="result-count">Produtos selecionados</span><label>Ordenar por <select id="sort"><option value="featured">Destaques</option><option value="price-asc">Menor preço</option><option value="price-desc">Maior preço</option></select></label></div>
+      <div class="product-grid" id="products" aria-live="polite"></div>
+      <p class="notice" id="cartAvailabilityNotice"></p>
+    </section>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </main>
+  <dialog id="cart-dialog" aria-labelledby="cart-title">
+    <div class="dialog-head"><h2 id="cart-title">Sua sacola</h2><button id="close-cart" class="close-button" type="button">Fechar</button></div>
+    <p id="cart-status" class="cart-status" role="status" aria-live="polite"></p>
+    <div id="cart-list" class="cart-list"></div>
+    <div class="cart-total"><span>Subtotal dos produtos</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+    <p class="cart-disclaimer">Frete ainda não calculado. O subtotal não representa o total final de uma compra.</p>
+    <p id="checkout-note" class="notice" hidden>A sacola está funcionando, mas a criação de pedidos e o pagamento ainda não estão disponíveis.</p>
+    <div class="cart-actions"><button id="checkout" type="button">Continuar</button><button id="clear-cart" class="button-secondary" type="button">Esvaziar sacola</button></div>
+  </dialog>
+  <footer class="site-footer"><a href="index.html">Voltar aos protótipos</a></footer>
+</body>
+</html>

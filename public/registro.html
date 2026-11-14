@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - SunnyArtesanato</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/registro.css">
+    <script src="assets/js/api.js" defer></script>
+    <script src="assets/js/registro.js" defer></script>
+</head>
+<body class="register-page">
+    <header class="header">
+        <div class="logo">
+            <h1><img src="assets/Imagens/SunnyLogo.png" alt="Logo SunnyArtesanato"> SunnyArtesanato</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="register-container">
+            <div class="register-logo">
+                <p>Junte-se à nossa comunidade de artesãos</p>
+            </div>
+
+            <div class="register-form">
+                <h2>Criar Conta</h2>
+
+                <div id="message" class="message"></div>
+
+                <form id="registerForm">
+                    <fieldset class="account-type">
+                        <legend>Que tipo de conta você deseja criar?</legend>
+                        <div class="account-type-options">
+                            <label class="account-type-option">
+                                <input type="radio" name="accountType" value="cliente" required>
+                                <span>
+                                    <strong>Quero comprar</strong>
+                                    <small>Encontre peças artesanais e acompanhe seus pedidos.</small>
+                                </span>
+                            </label>
+                            <label class="account-type-option">
+                                <input type="radio" name="accountType" value="artesao" required>
+                                <span>
+                                    <strong>Quero vender</strong>
+                                    <small>Cadastre seus produtos e gerencie suas vendas como artesão.</small>
+                                </span>
+                            </label>
+                        </div>
+                        <p id="accountTypeMessage" class="account-type-message" aria-live="polite">Selecione uma opção para continuar com o cadastro.</p>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="fullName">Nome Completo *</label>
+                        <input type="text" id="fullName" name="fullName" maxlength="45" autocomplete="name" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" maxlength="60" autocomplete="email" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha *</label>
+                            <input type="password" id="password" name="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar senha *</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Repita a senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ddi">DDI *</label>
+                            <input type="text" id="ddi" name="ddi" inputmode="numeric" maxlength="2" value="55" autocomplete="tel-country-code" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ddd">DDD *</label>
+                            <input type="text" id="ddd" name="ddd" inputmode="numeric" maxlength="2" autocomplete="tel-area-code" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone *</label>
+                            <input type="tel" id="phone" name="phone" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="999999999" required>
+                        </div>
+                    </div>
+
+                    <div class="address-section">
+                        <h3>Endereço</h3>
+
+                        <div class="form-group">
+                            <label for="cep">CEP *</label>
+                            <input type="text" id="cep" name="cep" inputmode="numeric" maxlength="8" autocomplete="postal-code" placeholder="Somente números" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="street">Rua *</label>
+                            <input type="text" id="street" name="street" maxlength="40" autocomplete="address-line1" placeholder="Nome da rua" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="number">Número *</label>
+                                <input type="number" id="number" name="number" min="0" step="1" placeholder="Nº" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="neighborhood">Bairro *</label>
+                                <input type="text" id="neighborhood" name="neighborhood" maxlength="25" autocomplete="address-level3" placeholder="Bairro" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Cidade *</label>
+                                <input type="text" id="city" name="city" maxlength="35" autocomplete="address-level2" placeholder="Cidade" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Estado *</label>
+                                <select id="state" name="state" required>
+                                    <option value="">Selecione</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" id="registerSubmit">Criar Conta</button>
+                </form>
+
+                <div class="links">
+                    <a href="login.html">Já tem conta? Faça login</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+    </footer>
+
+</body>
+</html>

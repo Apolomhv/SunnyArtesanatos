@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu perfil — SunnyArtesanatos</title>
+  <link rel="stylesheet" href="assets/css/mockups.css">
+  <link rel="stylesheet" href="assets/css/profile.css">
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/profile.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><img src="assets/Imagens/SunnyLogo.png" alt="">SunnyArtesanatos</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap profile-main">
+    <div class="profile-heading">
+      <div>
+        <p class="eyebrow">Área da conta</p>
+        <h1>Meu perfil</h1>
+        <p>Consulte seus dados, acompanhe suas atividades e veja as atualizações da sua conta.</p>
+      </div>
+    </div>
+
+    <p class="demo-notice" id="profileNotice">Carregando os dados da sua conta…</p>
+
+    <section class="profile-summary" aria-label="Resumo da conta">
+      <div class="avatar" aria-hidden="true">M</div>
+      <div class="summary-copy">
+        <h2 id="profileName">Carregando…</h2>
+        <p><span id="profileRole">Conta</span></p>
+      </div>
+      <div class="summary-actions">
+        <span class="account-badge" id="accountBadge"></span>
+        <button type="button" class="button button-secondary" id="logoutButton">Sair</button>
+      </div>
+    </section>
+
+    <div class="profile-layout">
+      <nav class="profile-tabs" role="tablist" aria-label="Seções do perfil">
+        <button class="profile-tab" id="tab-personal" type="button" role="tab" aria-selected="true" aria-controls="panel-personal" data-tab="personal">Dados pessoais</button>
+        <button class="profile-tab" id="tab-activity" type="button" role="tab" aria-selected="false" aria-controls="panel-activity" data-tab="activity"><span id="activityTabLabel">Minhas compras</span></button>
+        <button class="profile-tab" id="tab-notifications" type="button" role="tab" aria-selected="false" aria-controls="panel-notifications" data-tab="notifications">Notificações <span class="tab-count" id="notificationCount">0</span></button>
+      </nav>
+
+      <div class="profile-content">
+        <section class="profile-panel" id="panel-personal" role="tabpanel" aria-labelledby="tab-personal">
+          <div class="panel-heading">
+            <div><h2>Dados pessoais</h2><p>Informações cadastradas na sua conta.</p></div>
+            <button type="button" class="button button-secondary" id="editProfile">Editar informações</button>
+          </div>
+          <div class="personal-grid" id="personalDetails">
+            <div class="personal-field"><span>Nome completo</span><strong data-account="nome"></strong></div>
+            <div class="personal-field"><span>E-mail</span><strong data-account="email"></strong></div>
+            <div class="personal-field"><span>Telefone</span><strong data-account="telefone"></strong></div>
+            <div class="personal-field"><span>Endereço</span><strong data-account="rua"></strong></div>
+            <div class="personal-field"><span>Bairro e cidade</span><strong data-account="cidade"></strong></div>
+            <div class="personal-field"><span>CEP / UF</span><strong data-account="cep"></strong></div>
+          </div>
+          <form class="edit-form" id="profileForm" hidden>
+            <div class="personal-grid">
+              <label class="personal-field">Nome completo<input name="nome" maxlength="45" required></label>
+              <label class="personal-field">E-mail<input name="email" type="email" maxlength="60" required></label>
+              <label class="personal-field">DDI<input name="ddi" inputmode="numeric" maxlength="2" required></label>
+              <label class="personal-field">DDD<input name="ddd" inputmode="numeric" maxlength="2" required></label>
+              <label class="personal-field">Telefone<input name="telefone" inputmode="numeric" maxlength="10" required></label>
+              <label class="personal-field">CEP<input name="cep" inputmode="numeric" maxlength="8" required></label>
+              <label class="personal-field">Rua<input name="rua" maxlength="40" required></label>
+              <label class="personal-field">Número<input name="numero" type="number" min="0" step="1" required></label>
+              <label class="personal-field">Bairro<input name="bairro" maxlength="25" required></label>
+              <label class="personal-field">Cidade<input name="cidade" maxlength="35" required></label>
+              <label class="personal-field">UF<input name="uf" maxlength="2" pattern="[A-Za-z]{2}" required></label>
+              <label class="personal-field">Nova senha (opcional)<input name="senha" type="password" minlength="8" maxlength="72" autocomplete="new-password"></label>
+            </div>
+            <div class="form-actions"><button type="button" class="button button-secondary" id="cancelEdit">Cancelar</button><button type="submit" class="button" id="saveProfile">Salvar alterações</button></div>
+          </form>
+          <div class="form-actions"><button type="button" class="button button-secondary" id="deleteAccount">Excluir minha conta</button></div>
+        </section>
+
+        <section class="profile-panel" id="panel-activity" role="tabpanel" aria-labelledby="tab-activity" hidden>
+          <div class="panel-heading">
+            <div><h2 id="activityHeading">Minhas compras</h2><p id="activityDescription">Acompanhe seus pedidos recentes.</p></div>
+            <div class="panel-heading-actions">
+              <a class="button button-secondary" href="addproduto.html" id="addProductAction" hidden>Adicionar produto</a>
+              <a class="button button-secondary" href="mockup-ux.html" id="activityAction">Explorar produtos</a>
+            </div>
+          </div>
+          <div id="activityList" class="activity-list"></div>
+        </section>
+
+        <section class="profile-panel" id="panel-notifications" role="tabpanel" aria-labelledby="tab-notifications" hidden>
+          <div class="panel-heading">
+            <div><h2>Notificações</h2><p id="notificationsDescription">Atualizações dos seus pedidos.</p></div>
+            <button type="button" class="button button-secondary" id="markAllRead">Marcar todas como lidas</button>
+          </div>
+          <div id="notificationsList" class="notifications-list"></div>
+        </section>
+      </div>
+    </div>
+    <p class="profile-status" id="profileStatus" role="status" aria-live="polite"></p>
+  </main>
+
+  <footer class="site-footer">SunnyArtesanatos · Feito à mão no Brasil</footer>
+</body>
+</html>

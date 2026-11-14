@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adicionar produto — SunnyArtesanatos</title>
+  <link rel="stylesheet" href="assets/css/mockups.css">
+  <link rel="stylesheet" href="assets/css/addproduto.css">
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/addproduto.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o formulário</a>
+  <header class="site-header">
+    <div class="market-topbar">Espaço do artesão · Gerencie seus produtos</div>
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><img src="assets/Imagens/SunnyLogo.png" alt="">SunnyArtesanatos</a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="mockup-ux.html">Ver loja</a>
+        <a href="profile.html#activity">Meus produtos</a>
+        <a href="profile.html">Meu perfil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap add-product-main">
+    <div class="form-intro">
+      <p class="eyebrow">Painel do artesão</p>
+      <h1 id="formTitle">Adicionar produto</h1>
+      <p>As informações são salvas no catálogo da SunnyArtesanatos.</p>
+    </div>
+
+    <form id="addProductForm" class="add-product-card">
+      <section class="form-section" aria-labelledby="basic-title">
+        <h2 class="section-title" id="basic-title">Informações do produto</h2>
+        <div class="form-group">
+          <label for="productName">Nome do produto *</label>
+          <input type="text" id="productName" name="productName" class="form-control" maxlength="75" required>
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Descrição *</label>
+          <textarea id="productDescription" name="productDescription" class="form-control" maxlength="700" required></textarea>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="details-title">
+        <h2 class="section-title" id="details-title">Preço e estoque</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="productPrice">Preço (R$) *</label>
+            <input type="number" id="productPrice" name="productPrice" class="form-control" min="0" max="99999999.99" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="productStock">Quantidade em estoque *</label>
+            <input type="number" id="productStock" name="productStock" class="form-control" min="0" step="1" required>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="images-title">
+        <h2 class="section-title" id="images-title">Foto</h2>
+        <div class="form-group">
+          <label for="mainImage" class="photo-label">Foto principal <span id="photoRequired">*</span></label>
+          <div class="image-picker" id="imagePicker">
+            <input type="file" id="mainImage" name="mainImage" accept="image/png,image/jpeg,image/gif,image/webp" required>
+            <label class="image-upload" for="mainImage">
+              <span class="upload-icon" aria-hidden="true">＋</span>
+              <span class="upload-text" id="imageUploadText">Clique para escolher uma foto</span>
+              <span class="upload-hint">ou arraste e solte a imagem aqui</span>
+              <span class="upload-hint">JPEG, PNG, GIF ou WebP · até 60 KB</span>
+            </label>
+            <p class="selected-file" id="selectedFile" aria-live="polite"></p>
+            <div class="image-preview" id="mainPreview" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="form-actions">
+        <a class="btn btn-secondary" id="cancelProduct" href="profile.html#activity">Cancelar</a>
+        <button type="submit" class="btn btn-primary" id="submitProduct">Salvar produto</button>
+      </div>
+      <p class="profile-status" id="productStatus" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">SunnyArtesanatos · Feito à mão no Brasil</footer>
+</body>
+</html>

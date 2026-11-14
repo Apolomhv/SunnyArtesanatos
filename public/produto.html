@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produto — SunnyArtesanatos</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/cart.css">
+  <link rel="stylesheet" href="assets/css/product-marketplace.css">
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script src="assets/js/produto.js" defer></script>
+</head>
+<body class="product-page">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><img src="assets/Imagens/SunnyLogo.png" alt="">SunnyArtesanatos</a>
+      <form class="market-search" role="search" action="mockup-ux.html" method="get">
+        <label class="sr-only" for="productSearch">Buscar produtos</label>
+        <input id="productSearch" name="q" type="search" placeholder="Buscar produtos e artesãos">
+        <button type="submit" aria-label="Buscar">⌕</button>
+      </form>
+      <div class="header-tools">
+        <a class="account-link" id="loginLink" href="login.html">Entre ou cadastre-se</a>
+        <a class="account-link" id="profileLink" href="profile.html" hidden>Meu perfil</a>
+        <button class="header-cart" id="open-cart" type="button" aria-label="Abrir sacola, 0 itens">Sacola <span id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container product-detail-main">
+    <nav class="breadcrumb" aria-label="Você está aqui">
+      <a href="mockup-ux.html">Catálogo</a> <span aria-hidden="true">›</span>
+      <span id="breadcrumbName">Produto</span>
+    </nav>
+    <p id="productStatus" class="product-status" role="status" aria-live="polite">Carregando produto…</p>
+    <section class="product-detail" id="productDetail" hidden>
+      <div class="product-gallery">
+        <div class="main-image"><img id="productImage" alt=""></div>
+      </div>
+      <div class="product-info">
+        <p class="eyebrow">Peça artesanal</p>
+        <h1 class="product-title" id="productName"></h1>
+        <p class="product-artisan">Por <span id="artisanName"></span></p>
+        <p class="product-price" id="productPrice"></p>
+        <p class="product-description" id="productDescription"></p>
+        <p class="product-stock" id="productStock"></p>
+        <p class="notice" id="cartAvailabilityNotice"></p>
+        <div class="product-cart-actions">
+          <label for="productQuantity">Quantidade</label>
+          <input id="productQuantity" type="number" min="1" value="1">
+          <button class="btn btn-primary" type="button" id="addProductToCart">Adicionar à sacola</button>
+        </div>
+        <a class="button button-secondary" href="#" id="editProduct" hidden>Editar este produto</a>
+        <a class="button button-secondary" href="mockup-ux.html">Voltar ao catálogo</a>
+      </div>
+    </section>
+  </main>
+  <dialog id="cart-dialog" aria-labelledby="cart-title">
+    <div class="dialog-head"><h2 id="cart-title">Sua sacola</h2><button id="close-cart" class="close-button" type="button">Fechar</button></div>
+    <p id="cart-status" class="cart-status" role="status" aria-live="polite"></p>
+    <div id="cart-list" class="cart-list"></div>
+    <div class="cart-total"><span>Subtotal dos produtos</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+    <p class="cart-disclaimer">Frete ainda não calculado. O subtotal não representa o total final de uma compra.</p>
+    <p id="checkout-note" class="notice" hidden>A sacola está funcionando, mas a criação de pedidos e o pagamento ainda não estão disponíveis.</p>
+    <div class="cart-actions"><button id="checkout" type="button">Continuar</button><button id="clear-cart" class="button-secondary" type="button">Esvaziar sacola</button></div>
+  </dialog>
+</body>
+</html>

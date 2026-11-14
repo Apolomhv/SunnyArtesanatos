@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login SunnyArtesanatos</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/api.js" defer></script>
+    <script src="assets/js/login.js" defer></script>
+</head>
+<body class="login-page">
+    <header class="header">
+        <div class="logo">
+            <h1><img src="assets/Imagens/SunnyLogo.png" alt="Logo SunnyArtesanato"> SunnyArtesanato</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Login</h2>
+
+                <div id="message" class="message"></div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="accountType">Tipo de conta</label>
+                        <select id="accountType" name="accountType" required>
+                            <option value="cliente">Comprador</option>
+                            <option value="artesao">Artesão</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginInput">E-mail</label>
+                        <input type="email" id="loginInput" name="email" placeholder="seu@email.com" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" autocomplete="current-password" required>
+                    </div>
+                    <button type="submit" class="btn" id="loginSubmit">Entrar</button>
+                </form>
+
+
+                <div class="links">
+                    <a href="registro.html">Não tem conta? Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+    </footer>
+</body>
+</html>
