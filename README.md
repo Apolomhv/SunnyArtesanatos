@@ -20,9 +20,9 @@ O endpoint `GET /api/health` confirma que o servidor está ativo.
 
 ## Banco de dados MySQL
 
-O schema inicial está em `database/schema.sql` e cria as cinco tabelas
-`Artesao`, `Produto`, `Cliente`, `Pedido` e `Pedido_Produto` no banco
-`sunny_artesanatos`. No MySQL Workbench, abra o arquivo e execute o script.
+O schema inicial está em `database/schema.sql` e cria as tabelas de contas,
+produtos e pedidos no banco `sunny_artesanatos`. No MySQL Workbench, abra o
+arquivo e execute o script.
 
 As chaves estrangeiras exigem um cliente por pedido, um artesão por produto e
 um produto e pedido por linha de `Pedido_Produto`. O relacionamento permite
@@ -39,19 +39,15 @@ O schema não cria usuários nem senhas de conexão e não insere dados pessoais
 
 Para configurar a API, copie `.env.example` para `.env`, preencha os dados do
 MySQL e gere um segredo JWT forte. Não compartilhe nem versiona o `.env`.
-`database/schema.sql` representa instalações novas. Para bancos já criados,
-execute uma única vez `database/migrations/001_add_password_hash.sql` no
-Workbench antes de iniciar os cadastros.
+`database/schema.sql` representa instalações novas. Em um banco antigo, aplique
+`database/migrations/001_add_password_hash.sql` se ele ainda não tiver
+`password_hash`.
 
 A API fornece cadastro/login de artesãos e clientes, edição e exclusão da
-própria conta autenticada, listagem pública de produtos e operações de produto
-restritas ao artesão autenticado. Consulte [docs/api.md](./docs/api.md) para
-rotas, exemplos e limites. Cadastro, login, perfil, catálogo e produtos agora
-usam essas rotas; compras, frete e pedidos seguem fora do escopo atual.
+própria conta autenticada e operações de produtos. Consulte
+[docs/api.md](./docs/api.md) para as rotas disponíveis.
 O passo a passo das telas está em [docs/integracao-telas.md](./docs/integracao-telas.md).
-Uma sacola local permite que clientes autenticados adicionem e ajustem produtos
-e persiste no navegador; visitantes e artesãos não podem adicionar. Ela ainda
-não cria pedido nem inicia pagamento.
+O checkout e os pagamentos não estão disponíveis nesta versão.
 
 Para o escopo de CRUD sem alterar o schema, consulte
 [docs/crud-mvp.md](./docs/crud-mvp.md). O documento lista as rotas, validações,
@@ -76,10 +72,10 @@ saúde e isolamento dos arquivos privados.
 - `tests/`: testes end-to-end automatizados.
 - `unit-tests/`: testes automatizados das rotas sem depender de um MySQL local.
 - `playwright.config.js`: configuração de navegador e servidor de teste.
-- `database/schema.sql`: schema MySQL das cinco tabelas principais.
+- `database/schema.sql`: schema MySQL de contas, produtos e pedidos.
 - `database/migrations/`: alterações incrementais para bancos existentes.
 - `docs/integracao-telas.md`: explicação passo a passo das telas ligadas à API.
 - `PRD.md`: requisitos do produto.
 
 As telas integradas dependem da configuração de MySQL e JWT descrita em
-[docs/api.md](./docs/api.md). O sistema ainda não implementa pedidos nem pagamentos.
+[docs/api.md](./docs/api.md).

@@ -14,7 +14,6 @@ const server = app.listen(port, () => {
     console.warn("Banco MySQL não configurado. Rotas de persistência responderão com 503.");
   }
 });
-
 async function shutdown() {
   server.close(async () => {
     if (app.locals.pool) await app.locals.pool.end();
